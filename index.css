@@ -38,8 +38,7 @@ input[type="button"] {
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
   div {
-    margin-left: 35%;
-    margin-right: 35%;
+    margin: 0px;
   }
 }
 
