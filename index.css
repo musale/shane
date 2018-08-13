@@ -3,10 +3,7 @@ body {
   margin: 10px;
   background: whitesmoke;
 }
-div {
-  margin-left: 35%;
-  margin-right: 35%;
-}
+
 input[type="text"] {
   width: 100%;
   padding: 12px 20px;
@@ -22,4 +19,42 @@ input[type="button"] {
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  div {
+    margin: 0px;
+  }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  div {
+    margin: 0px;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  div {
+    margin-left: 35%;
+    margin-right: 35%;
+  }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  div {
+    margin-left: 35%;
+    margin-right: 35%;
+  }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+  div {
+    margin-left: 35%;
+    margin-right: 35%;
+  }
 }
