@@ -28,5 +28,52 @@ function shane() {
   const required =
     `${idx_0}${idx_1}${idx_2}${idx_3}${idx_4}${idx_5}` +
     `${idx_6}${idx_7}${idx_8}${idx_9}${idx_10}${idx_11}`;
-  document.getElementById("shane").innerHTML = required;
+  document.getElementById("shane").textContent = required;
+}
+
+function copyToClipboard() {
+    const shaneText = document.getElementById("shane").textContent;
+    if (!shaneText) return;
+
+    // Try modern clipboard API first
+    if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(shaneText)
+            .then(() => showCopiedFeedback())
+            .catch(() => fallbackCopyText(shaneText));
+    } else {
+        // Fallback for older browsers or non-secure contexts
+        fallbackCopyText(shaneText);
+    }
+}
+
+function fallbackCopyText(text) {
+    // Create temporary input element
+    const textArea = document.createElement("textarea");
+    textArea.value = text;
+    textArea.style.position = "fixed";
+    textArea.style.left = "-999999px";
+    textArea.style.top = "-999999px";
+    document.body.appendChild(textArea);
+    
+    // Select and copy
+    textArea.focus();
+    textArea.select();
+    try {
+        document.execCommand('copy');
+        showCopiedFeedback();
+    } catch (err) {
+        console.error('Failed to copy: ', err);
+    }
+    
+    // Cleanup
+    document.body.removeChild(textArea);
+}
+
+function showCopiedFeedback() {
+    const shaneElement = document.getElementById("shane");
+    const originalTitle = shaneElement.title;
+    shaneElement.title = "Copied!";
+    setTimeout(() => {
+        shaneElement.title = originalTitle;
+    }, 2000);
 }
